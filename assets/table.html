@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabla de precios</title>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="bower_components/materialize/dist/css/materialize.css">
+</head>
+<style>
+    /* Table 1 Style */
+    table.table1{
+        font-family: "Roboto", sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 1.4em;
+        font-style: normal;
+        border-collapse:separate;
+    }
+
+    h2{
+        text-align: center;
+        color:rgb(39, 170, 224);
+        padding: 8px;
+        width: 100%;
+    }
+
+    h5{
+        text-align: center;
+        padding: 8px;
+        width: 100%;
+    }
+    .table1 thead th{
+        padding:15px;
+        color:#fff;
+        background-color:rgb(39, 170, 224);
+    }
+    .table1 thead th:empty{
+        background:transparent;
+        border:none;
+    }
+    .table1 tbody th{
+        color:#fff;
+        background-color:rgb(39, 170, 224);
+        padding:0px 10px;
+    }
+    .table1 tfoot td{
+        color: rgb(39, 170, 224);
+        font-size:32px;
+        text-align:center;
+        padding:10px 0px;
+    }
+    .table1 tfoot th{
+        color:#666;
+    }
+    .table1 tbody td{
+        padding:10px;
+        text-align:center;
+        background-color:#fafafa;
+        border: 2px solid #E7EFE0;
+        -moz-border-radius:2px;
+        -webkit-border-radius:2px;
+        color:#666;
+    }
+
+    .first-row{
+        height:100px;
+    }
+
+    .first-row-cell{
+        height: 30px;
+        color: rgb(39, 170, 224) !important;
+        font-size:40px;
+    }
+
+    .second-row{
+        height:70px;
+    }
+
+    .second-row-cell{
+        height: 30px;
+        color: #41a85f !important;
+        font-size:25px;
+    }
+
+    .infinity{
+        width: 20px;
+    }
+
+    .check{
+        width: 20px;
+    }
+
+</style>
+<body>
+<h2>Costos accesible para tu tipo de negocio </h2>
+<h5>Escoge el plan y el precio al cual te acomodes de mejor manera</h5>
+
+<table class="table1">
+    <thead>
+    <tr>
+        <th></th>
+        <th scope="col" abbr="Craftsmen">Artesanos</th>
+        <th scope="col" abbr="Normal">Personas Naturales</th>
+        <th scope="col" abbr="MediumBusiness">Empresas medianas</th>
+        <th scope="col" abbr="BigBusiness">Empresas grandes</th>
+    </tr>
+    </thead>
+    <!--<tfoot>-->
+    <!--<tr>-->
+        <!--<th scope="row">Precio por mes</th>-->
+        <!--<td>$ 11.55</td>-->
+        <!--<td>$ 15</td>-->
+        <!--<td>$ 18.45</td>-->
+        <!--<td>$ 21,9</td>-->
+    <!--</tr>-->
+    <!--</tfoot>-->
+    <tbody>
+    <tr class="first-row">
+        <th scope="row">Precio por mes</th>
+        <td class="first-row-cell">$ 11.55</td>
+        <td class="first-row-cell">$ 15</td>
+        <td class="first-row-cell">$ 18.45</td>
+        <td class="first-row-cell">$ 21,9</td>
+    </tr>
+    <tr class="second-row">
+        <th scope="row">Precio Anual</th>
+        <td class="second-row-cell">$ 103.95</td>
+        <td class="second-row-cell">$ 135</td>
+        <td class="second-row-cell">$ 166.5</td>
+        <td class="second-row-cell">$ 197.1</td>
+    </tr>
+    <tr>
+        <th scope="row">Número de cuentas</th>
+        <td>2</td>
+        <td>2</td>
+        <td>5</td>
+        <td>10</td>
+    </tr>
+    <tr>
+        <th scope="row">Número de productos</th>
+        <td><img class="infinity" src="images/infinity.svg"> Ilimitados</td>
+        <td><img class="infinity" src="images/infinity.svg"> Ilimitados</td>
+        <td><img class="infinity" src="images/infinity.svg"> Ilimitados</td>
+        <td><img class="infinity" src="images/infinity.svg"> Ilimitados</td>
+    </tr>
+    <tr>
+        <th scope="row">Soporte</th>
+        <td>24/7</td>
+        <td>24/7</td>
+        <td>24/7</td>
+        <td>24/7</td>
+    </tr>
+    <tr>
+        <th scope="row">Almacenamiento</th>
+        <td>50 GB</td>
+        <td>70 GB</td>
+        <td>100 GB</td>
+        <td>150 GB</td>
+    </tr>
+    <tr>
+        <th scope="row">Descuento</th>
+        <td>20%</td>
+        <td>10%</td>
+        <td>5%</td>
+        <td>2%</td>
+    </tr>
+    <tr>
+        <th scope="row">Precio Anual</th>
+        <td>$ 103.95</td>
+        <td>$ 135</td>
+        <td>$ 166.5</td>
+        <td>$ 197.1</td>
+    </tr>
+    <tr>
+        <th scope="row">Certificado Digitál</th>
+        <td>
+            <img class="check" src="images/checked.svg">
+        </td>
+        <td>
+            <img class="check" src="images/checked.svg">
+        </td>
+        <td>
+            <img class="check" src="images/checked.svg">
+        </td>
+        <td>
+            <img class="check" src="images/checked.svg">
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="bower_components/materialize/dist/js/materialize.min.js"></script>
+</body>
+</html>
