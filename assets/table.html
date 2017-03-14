@@ -10,85 +10,159 @@
 </head>
 <style>
     /* Table 1 Style */
-    table.table1{
+    table.table1 {
         font-family: "Roboto", sans-serif;
         font-size: 16px;
         font-weight: bold;
         line-height: 1.4em;
         font-style: normal;
-        border-collapse:separate;
+        border-collapse: separate;
     }
 
-    h2{
+    h2 {
         text-align: center;
-        color:rgb(39, 170, 224);
-        padding: 8px;
-        width: 100%;
-    }
-
-    h5{
-        text-align: center;
-        padding: 8px;
-        width: 100%;
-    }
-    .table1 thead th{
-        padding:15px;
-        color:#fff;
-        background-color:rgb(39, 170, 224);
-    }
-    .table1 thead th:empty{
-        background:transparent;
-        border:none;
-    }
-    .table1 tbody th{
-        color:#fff;
-        background-color:rgb(39, 170, 224);
-        padding:0px 10px;
-    }
-    .table1 tfoot td{
         color: rgb(39, 170, 224);
-        font-size:32px;
-        text-align:center;
-        padding:10px 0px;
+        padding: 8px;
+        width: 100%;
     }
-    .table1 tfoot th{
-        color:#666;
+
+    h5 {
+        text-align: center;
+        padding: 8px;
+        width: 100%;
     }
-    .table1 tbody td{
-        padding:10px;
-        text-align:center;
-        background-color:#fafafa;
+
+    .table1 thead th {
+        padding: 0px !important;
+        color: #fff;
+        background-color: rgb(39, 170, 224);
+
+    }
+
+    .table1 thead th div {
+        width: 100%;
+    }
+
+    .table1 thead th div.header div.title {
+        text-align: center;
+        width: 50px;
+        margin: auto;
+    }
+
+    .table1 thead th div.header div.image-box {
+        width: 30px;
+        margin: auto;
+    }
+
+    .table1 thead th div.header {
+        height: 160px;
+        width: 255px;
+        padding: 2.8em 1.8em 2em;
+        border-bottom:2px solid#41a85f;
+        border-top-left-radius:0.7em;
+        -webkit-border-top-left-radius:0.7em;
+        -o-border-top-left-radius: 0.7em;
+        -moz-border-top-left-radius:0.7em;
+        border-top-right-radius:0.7em;
+        -webkit-border-top-right-radius:0.7em;
+        -o-border-top-right-radius:0.7em;
+        -moz-border-top-left-radius: 0.7em;
+        position: relative;
+    }
+
+    .table1 thead th div.header .discount-box {
+        position: absolute;
+        top: 0;
+        overflow: hidden;
+        height: 130px;
+        width: 143px;
+        text-align: center;
+        z-index: 0;
+        right:0;
+        border-top-right-radius: 0.7em;
+        -o-border-top-right-radius: 0.7em;
+        -moz-border-top-right-radius: 0.7em;
+        -webkit-border-top-right-radius: 0.7em;
+    }
+
+    .table1 thead th div.header .discount-box span.discount-span{
+        font-size: 18px;
+        color: #fafafa;
+        background: #41a85f;
+        text-transform: uppercase;
+        padding: 58px 35px 17px 40px;
+        width: 281px;
+        text-align: center;
+        display: block;
+        position: absolute;
+        left: -18px;
+        top: -36px;
+        -moz-transition: all 0.5s ease;
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        transform: rotate(45deg);
+        box-shadow: 3px -4px 13px 3px rgba(0,0,0,0.75);
+    }
+
+    .table1 thead th:empty {
+        background: transparent;
+        border: none;
+    }
+
+    .table1 tbody th {
+        color: #fff;
+        background-color: rgb(39, 170, 224);
+        padding: 0px 10px;
+    }
+
+    .table1 tfoot td {
+        color: rgb(39, 170, 224);
+        font-size: 32px;
+        text-align: center;
+        padding: 10px 0px;
+    }
+
+    .table1 tfoot th {
+        color: #666;
+    }
+
+    .table1 tbody td {
+        padding: 10px;
+        text-align: center;
+        background-color: #fafafa;
         border: 2px solid #E7EFE0;
-        -moz-border-radius:2px;
-        -webkit-border-radius:2px;
-        color:#666;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        color: #666;
     }
 
-    .first-row{
-        height:100px;
+    .first-row {
+        height: 100px;
     }
 
-    .first-row-cell{
+    .first-row-cell {
         height: 30px;
         color: rgb(39, 170, 224) !important;
-        font-size:40px;
+        font-size: 40px;
     }
 
-    .second-row{
-        height:70px;
+    .second-row {
+        height: 70px;
     }
 
-    .second-row-cell{
+    .second-row-cell {
         height: 30px;
         color: #41a85f !important;
-        font-size:25px;
+        font-size: 25px;
     }
 
-    .infinity{
+    .infinity {
         width: 20px;
     }
 
-    .check{
+    .check {
         width: 20px;
     }
 
@@ -101,19 +175,59 @@
     <thead>
     <tr>
         <th></th>
-        <th scope="col" abbr="Craftsmen">Artesanos</th>
-        <th scope="col" abbr="Normal">Personas Naturales</th>
-        <th scope="col" abbr="MediumBusiness">Empresas medianas</th>
-        <th scope="col" abbr="BigBusiness">Empresas grandes</th>
+        <th scope="col" abbr="Craftsmen">
+            <div class="header">
+                <div class="discount-box">
+                    <span class="discount-span">10%</span>
+                </div>
+                <div class="image-box">
+                    <img src="images/art-tools.svg" alt="Art tools" height="50" width="50">
+                </div>
+                <div class="title">Artesanos</div>
+            </div>
+        </th>
+        <th scope="col" abbr="Normal">
+            <div class="header">
+                <div class="discount-box">
+                    <span class="discount-span">10%</span>
+                </div>
+                <div class="image-box">
+                    <img src="images/user.svg" alt="Person" height="50" width="50">
+                </div>
+                <div class="title">Personas Naturales</div>
+            </div>
+        </th>
+        <th scope="col" abbr="MediumBusiness">
+            <div class="header">
+                <div class="discount-box">
+                    <span class="discount-span">10%</span>
+                </div>
+                <div class="image-box">
+                    <img src="images/shop.svg" alt="Person" height="50" width="50">
+                </div>
+                <div class="title">Empresas medianas</div>
+            </div>
+        </th>
+        <th scope="col" abbr="BigBusiness">
+            <div class="header">
+                <div class="discount-box">
+                    <span class="discount-span">10%</span>
+                </div>
+                <div class="image-box">
+                    <img src="images/briefcase.svg" alt="Person" height="50" width="50">
+                </div>
+                <div class="title">Empresas grandes</div>
+            </div>
+        </th>
     </tr>
     </thead>
     <!--<tfoot>-->
     <!--<tr>-->
-        <!--<th scope="row">Precio por mes</th>-->
-        <!--<td>$ 11.55</td>-->
-        <!--<td>$ 15</td>-->
-        <!--<td>$ 18.45</td>-->
-        <!--<td>$ 21,9</td>-->
+    <!--<th scope="row">Precio por mes</th>-->
+    <!--<td>$ 11.55</td>-->
+    <!--<td>$ 15</td>-->
+    <!--<td>$ 18.45</td>-->
+    <!--<td>$ 21,9</td>-->
     <!--</tr>-->
     <!--</tfoot>-->
     <tbody>
