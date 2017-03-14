@@ -9,8 +9,17 @@
     <link type="text/css" rel="stylesheet" href="bower_components/materialize/dist/css/materialize.css">
 </head>
 <style>
+    #buttons {
+        text-align: center;
+    }
+
+    #buttons .column-button {
+        margin:8px;
+    }
+
     /* Table 1 Style */
     table.table1 {
+        margin-top: 24px;
         font-family: "Roboto", sans-serif;
         font-size: 16px;
         font-weight: bold;
@@ -21,7 +30,7 @@
 
     h2 {
         text-align: center;
-        color: rgb(39, 170, 224);
+        color: #004BB2;
         padding: 8px;
         width: 100%;
     }
@@ -35,7 +44,7 @@
     .table1 thead th {
         padding: 0px !important;
         color: #fff;
-        background-color: rgb(39, 170, 224);
+        background-color: #004BB2;
 
     }
 
@@ -58,14 +67,14 @@
         height: 160px;
         width: 255px;
         padding: 2.8em 1.8em 2em;
-        border-bottom:2px solid#41a85f;
-        border-top-left-radius:0.7em;
-        -webkit-border-top-left-radius:0.7em;
+        border-bottom: 2px solid #00C400;
+        border-top-left-radius: 0.7em;
+        -webkit-border-top-left-radius: 0.7em;
         -o-border-top-left-radius: 0.7em;
-        -moz-border-top-left-radius:0.7em;
-        border-top-right-radius:0.7em;
-        -webkit-border-top-right-radius:0.7em;
-        -o-border-top-right-radius:0.7em;
+        -moz-border-top-left-radius: 0.7em;
+        border-top-right-radius: 0.7em;
+        -webkit-border-top-right-radius: 0.7em;
+        -o-border-top-right-radius: 0.7em;
         -moz-border-top-left-radius: 0.7em;
         position: relative;
     }
@@ -78,32 +87,39 @@
         width: 143px;
         text-align: center;
         z-index: 0;
-        right:0;
+        left: 0;
+        /*right:0;*/
         border-top-right-radius: 0.7em;
         -o-border-top-right-radius: 0.7em;
         -moz-border-top-right-radius: 0.7em;
         -webkit-border-top-right-radius: 0.7em;
     }
 
-    .table1 thead th div.header .discount-box span.discount-span{
-        font-size: 18px;
-        color: #fafafa;
-        background: #41a85f;
+    .table1 thead th div.header .discount-box span.discount-span {
+        font-weight: bolder;
+        font-size: 24px;
+        color: #B71C1C;
+        background: #FF9F00;
         text-transform: uppercase;
         padding: 58px 35px 17px 40px;
         width: 281px;
         text-align: center;
         display: block;
         position: absolute;
-        left: -18px;
+        /*left: -18px;*/
+        /*top: -36px;*/
+        right: -19px;
         top: -36px;
         -moz-transition: all 0.5s ease;
         -webkit-transition: all 0.5s ease;
         transition: all 0.5s ease;
+        /*-webkit-transform: rotate(-45deg);*/
         -webkit-transform: rotate(-45deg);
+        /*-ms-transform: rotate(-45deg);*/
         -ms-transform: rotate(-45deg);
-        transform: rotate(45deg);
-        box-shadow: 3px -4px 13px 3px rgba(0,0,0,0.75);
+        /*transform: rotate(45deg);*/
+        transform: rotate(-45deg);
+        box-shadow: 3px -4px 13px 3px rgba(0, 0, 0, 0.75);
     }
 
     .table1 thead th:empty {
@@ -113,12 +129,12 @@
 
     .table1 tbody th {
         color: #fff;
-        background-color: rgb(39, 170, 224);
+        background-color: #004BB2;
         padding: 0px 10px;
     }
 
     .table1 tfoot td {
-        color: rgb(39, 170, 224);
+        color: #004BB2;
         font-size: 32px;
         text-align: center;
         padding: 10px 0px;
@@ -144,7 +160,7 @@
 
     .first-row-cell {
         height: 30px;
-        color: rgb(39, 170, 224) !important;
+        color: #004BB2 !important;
         font-size: 40px;
     }
 
@@ -154,7 +170,7 @@
 
     .second-row-cell {
         height: 30px;
-        color: #41a85f !important;
+        color: #00C400 !important;
         font-size: 25px;
     }
 
@@ -166,16 +182,65 @@
         width: 20px;
     }
 
+    @media screen and (min-width: 1001px) {
+        #buttons {
+            display: none;
+        }
+
+        .craftsmen {
+            display: table-cell;
+        }
+
+        .normal {
+            display: table-cell;
+        }
+
+        .medium {
+            display: table-cell;
+        }
+
+        .big {
+            display: table-cell;
+        }
+    }
+
+    @media screen and (max-width: 1000px) {
+        #buttons {
+            display: block;
+        }
+
+        .craftsmen {
+            display: table-cell;
+        }
+
+        .normal {
+            display: none;
+        }
+
+        .medium {
+            display: none;
+        }
+
+        .big {
+            display: none;
+        }
+    }
+
 </style>
 <body>
 <h2>Costos accesible para tu tipo de negocio </h2>
 <h5>Escoge el plan y el precio al cual te acomodes de mejor manera</h5>
-
+<div id="buttons" class="mbr-buttons mbr-buttons--right">
+    <button class="column-button mbr-buttons__btn btn btn-lg btn-success" onclick="showOnlyCraftsmen()">Artesanos</button>
+    <button class="column-button mbr-buttons__btn btn btn-lg btn-success" onclick="showOnlyNormal()">Personas Naturales</button>
+    <button class="column-button mbr-buttons__btn btn btn-lg btn-success" onclick="showOnlyMedium()">Empresas Medianas</button>
+    <button class="column-button mbr-buttons__btn btn btn-lg btn-success" onclick="showOnlyBig()">Empresas Grandes</button>
+</div>
 <table class="table1">
     <thead>
     <tr>
         <th></th>
-        <th scope="col" abbr="Craftsmen">
+        <th scope="col" abbr="Craftsmen" class="craftsmen">
             <div class="header">
                 <div class="discount-box">
                     <span class="discount-span">10%</span>
@@ -186,7 +251,7 @@
                 <div class="title">Artesanos</div>
             </div>
         </th>
-        <th scope="col" abbr="Normal">
+        <th scope="col" abbr="Normal" class="normal">
             <div class="header">
                 <div class="discount-box">
                     <span class="discount-span">10%</span>
@@ -197,7 +262,7 @@
                 <div class="title">Personas Naturales</div>
             </div>
         </th>
-        <th scope="col" abbr="MediumBusiness">
+        <th scope="col" abbr="MediumBusiness" class="medium">
             <div class="header">
                 <div class="discount-box">
                     <span class="discount-span">10%</span>
@@ -208,7 +273,7 @@
                 <div class="title">Empresas medianas</div>
             </div>
         </th>
-        <th scope="col" abbr="BigBusiness">
+        <th scope="col" abbr="BigBusiness" class="big">
             <div class="header">
                 <div class="discount-box">
                     <span class="discount-span">10%</span>
@@ -231,81 +296,191 @@
     <!--</tr>-->
     <!--</tfoot>-->
     <tbody>
-    <tr class="first-row">
+    <tr class="first-row ">
         <th scope="row">Precio por mes</th>
-        <td class="first-row-cell">$ 11.55</td>
-        <td class="first-row-cell">$ 15</td>
-        <td class="first-row-cell">$ 18.45</td>
-        <td class="first-row-cell">$ 21,9</td>
+        <td class="first-row-cell craftsmen">$ 11.55</td>
+        <td class="first-row-cell normal">$ 15</td>
+        <td class="first-row-cell medium">$ 18.45</td>
+        <td class="first-row-cell big">$ 21,9</td>
     </tr>
     <tr class="second-row">
         <th scope="row">Precio Anual</th>
-        <td class="second-row-cell">$ 103.95</td>
-        <td class="second-row-cell">$ 135</td>
-        <td class="second-row-cell">$ 166.5</td>
-        <td class="second-row-cell">$ 197.1</td>
+        <td class="second-row-cell craftsmen">$ 103.95</td>
+        <td class="second-row-cell normal">$ 135</td>
+        <td class="second-row-cell medium">$ 166.5</td>
+        <td class="second-row-cell big">$ 197.1</td>
     </tr>
     <tr>
         <th scope="row">Número de cuentas</th>
-        <td>2</td>
-        <td>2</td>
-        <td>5</td>
-        <td>10</td>
+        <td class="craftsmen">2</td>
+        <td class="normal">2</td>
+        <td class="medium">5</td>
+        <td class="big">10</td>
     </tr>
     <tr>
         <th scope="row">Número de productos</th>
-        <td><img class="infinity" src="images/infinity.svg"> Ilimitados</td>
-        <td><img class="infinity" src="images/infinity.svg"> Ilimitados</td>
-        <td><img class="infinity" src="images/infinity.svg"> Ilimitados</td>
-        <td><img class="infinity" src="images/infinity.svg"> Ilimitados</td>
+        <td class="craftsmen"><img class="infinity " src="images/infinity.svg"> Ilimitados</td>
+        <td class="normal"><img class="infinity" src="images/infinity.svg"> Ilimitados</td>
+        <td class="medium"><img class="infinity" src="images/infinity.svg"> Ilimitados</td>
+        <td class="big"><img class="infinity" src="images/infinity.svg"> Ilimitados</td>
     </tr>
     <tr>
         <th scope="row">Soporte</th>
-        <td>24/7</td>
-        <td>24/7</td>
-        <td>24/7</td>
-        <td>24/7</td>
+        <td class="craftsmen">24/7</td>
+        <td class="normal">24/7</td>
+        <td class="medium">24/7</td>
+        <td class="big">24/7</td>
     </tr>
     <tr>
         <th scope="row">Almacenamiento</th>
-        <td>50 GB</td>
-        <td>70 GB</td>
-        <td>100 GB</td>
-        <td>150 GB</td>
+        <td class="craftsmen">50 GB</td>
+        <td class="normal">70 GB</td>
+        <td class="medium">100 GB</td>
+        <td class="big">150 GB</td>
     </tr>
-    <tr>
-        <th scope="row">Descuento</th>
-        <td>20%</td>
-        <td>10%</td>
-        <td>5%</td>
-        <td>2%</td>
-    </tr>
+    <!--<tr>-->
+    <!--<th scope="row">Descuento</th>-->
+    <!--<td class="craftsmen">20%</td>-->
+    <!--<td class="normal">10%</td>-->
+    <!--<td class="medium">5%</td>-->
+    <!--<td class="big">2%</td>-->
+    <!--</tr>-->
     <tr>
         <th scope="row">Precio Anual</th>
-        <td>$ 103.95</td>
-        <td>$ 135</td>
-        <td>$ 166.5</td>
-        <td>$ 197.1</td>
+        <td class="craftsmen">$ 103.95</td>
+        <td class="normal">$ 135</td>
+        <td class="medium">$ 166.5</td>
+        <td class="big">$ 197.1</td>
     </tr>
     <tr>
         <th scope="row">Certificado Digitál</th>
-        <td>
+        <td class="craftsmen">
             <img class="check" src="images/checked.svg">
         </td>
-        <td>
+        <td class="normal">
             <img class="check" src="images/checked.svg">
         </td>
-        <td>
+        <td class="medium">
             <img class="check" src="images/checked.svg">
         </td>
-        <td>
+        <td class="big">
             <img class="check" src="images/checked.svg">
         </td>
     </tr>
-
     </tbody>
 </table>
 <!--Import jQuery before materialize.js-->
+<script>
+    function changeDisplay(item, index) {
+        var display = item.style.display;
+        if (display === 'none') {
+            item.style.display = 'table-cell';
+        } else {
+            item.style.display = 'none';
+        }
+    }
+
+    function hideItem(item, index) {
+        item.style.display = 'none';
+    }
+
+    function showItem(item, index) {
+        item.style.display = 'table-cell';
+    }
+
+
+    function changeDisplayCraftsmen() {
+        var craftsmenColumn = document.querySelectorAll('.craftsmen');
+        craftsmenColumn.forEach(changeDisplay);
+    }
+
+    function showOnlyCraftsmen() {
+        showCraftsmen();
+        hideNormal();
+        hideMedium();
+        hideBig();
+    }
+
+    function showCraftsmen() {
+        var craftsmenColumn = document.querySelectorAll('.craftsmen');
+        craftsmenColumn.forEach(showItem);
+    }
+
+    function hideCraftsmen() {
+        var craftsmenColumn = document.querySelectorAll('.craftsmen');
+        craftsmenColumn.forEach(hideItem);
+    }
+
+
+    function changeDisplayNormal() {
+        var normalColumn = document.querySelectorAll('.normal');
+        normalColumn.forEach(changeDisplay);
+    }
+
+    function showOnlyNormal() {
+        showNormal();
+        hideCraftsmen();
+        hideMedium();
+        hideBig();
+    }
+
+    function showNormal() {
+        var craftsmenColumn = document.querySelectorAll('.normal');
+        craftsmenColumn.forEach(showItem);
+    }
+
+    function hideNormal() {
+        var craftsmenColumn = document.querySelectorAll('.normal');
+        craftsmenColumn.forEach(hideItem);
+    }
+
+
+    function changeDisplayMedium() {
+        var mediumColumn = document.querySelectorAll('.medium');
+        mediumColumn.forEach(changeDisplay);
+    }
+
+    function showOnlyMedium() {
+        showMedium();
+        hideCraftsmen();
+        hideNormal();
+        hideBig();
+    }
+
+    function showMedium() {
+        var craftsmenColumn = document.querySelectorAll('.medium');
+        craftsmenColumn.forEach(showItem);
+    }
+
+    function hideMedium() {
+        var craftsmenColumn = document.querySelectorAll('.medium');
+        craftsmenColumn.forEach(hideItem);
+    }
+
+
+    function changeDisplayBig() {
+        var bigColumn = document.querySelectorAll('.big');
+        bigColumn.forEach(changeDisplay);
+    }
+
+    function showOnlyBig() {
+        showBig();
+        hideCraftsmen();
+        hideNormal();
+        hideMedium();
+    }
+
+    function showBig() {
+        var craftsmenColumn = document.querySelectorAll('.big');
+        craftsmenColumn.forEach(showItem);
+    }
+
+    function hideBig() {
+        var craftsmenColumn = document.querySelectorAll('.big');
+        craftsmenColumn.forEach(hideItem);
+    }
+
+</script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="bower_components/materialize/dist/js/materialize.min.js"></script>
 </body>
